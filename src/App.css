@@ -7,14 +7,44 @@
   pointer-events: none;
 }
 
+.div_style {
+  background-color: lightblue;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+.activeclass{
+  color:red;
+   text-decoration: none;
+}
+
+.responsive-image {
+  position: relative;
+  max-width: 100%;
+}
+
+.responsive-image__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #be520a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

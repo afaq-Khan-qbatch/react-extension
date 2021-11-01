@@ -1,24 +1,30 @@
-/*global chrome*/
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NavBar from './nav';
+import dashboard from './dashboard';
+import { Route, Switch } from 'react-router-dom'
+import Cart from './cart';
+import Error from './Error';
+import SignIn from './singin';
+import SignUp from './signUp';
+import Stripe from './stripeExample';
 
 function App() {
+
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>Woah it's a React Chrome extension...</p>
-        <a
-          className='App-link'
-          href='https://developer.chrome.com/docs/extensions/mv3/getstarted/'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          View Extension Dev Docs
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <NavBar />
+      <Switch>
+        <Route path='/cart' component={Cart} />
+        <Route path='/signup' component={SignUp} />
+        <Route path='/signin' component={SignIn} />
+        <Route path='/stripe' component={Stripe} />
+        <Route path='/' component={dashboard} />
+        <Route component={Error} />
+      </Switch>
+
+    </>
+  )
 }
 
 export default App;

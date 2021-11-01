@@ -1,18 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "React Chrome Extension",
+  "name": "drop Shipping",
   "version": "0.1",
-  "description": "Boilerplate manifest for React based Chrome Extension using Google's Manifest v3",
+  "description": "",
   "background": {
     "service_worker": "./background.js"
   },
-  "permissions": [],
-  "author": "Christian Sendler",
-  "homepage_url": "https://github.com/casendler/",
-
-  "short_name": "React Extension",
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "index.html",
     "default_title": "React Chrome Extension",
     "default_icon": {
       "16": "/images/react-logo-16.png",
@@ -26,5 +21,41 @@
     "32": "/images/react-logo-32.png",
     "48": "/images/react-logo-48.png",
     "128": "/images/react-logo-128.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.walmart.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "scripts/walmart.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.facebook.com/marketplace/create/item"
+      ],
+      "all_frames": true,
+      "js": [
+        "scripts/fbMarketPlace.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "alarms",
+    "storage",
+    "scripting",
+    "webNavigation",
+    "webRequest",
+    "identity",
+    "identity.email"
+  ],
+  "host_permissions": [
+    "*://*.samsclub.com/*",
+    "*://*.homedepot.com/p/*",
+    "https://www.walmart.com/*",
+    "http://3.86.137.112/*"
+  ]
 }
